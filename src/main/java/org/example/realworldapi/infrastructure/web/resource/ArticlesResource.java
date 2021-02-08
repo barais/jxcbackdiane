@@ -80,7 +80,8 @@ public class ArticlesResource {
 	}
 
 	@GET
-//@Secured({Role.ADMIN, Role.USER})
+	@Secured(optional = true)
+	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllArticles(@Context SecurityContext securityContext) {
 		Long loggedUserId = getLoggedUserId(securityContext);
